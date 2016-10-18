@@ -16,7 +16,7 @@ function init()
 
 function download()
 {
-    wget "$1" -O distfiles/"$2"
+    wget "$1" -O /distfiles/"$2"
 }
 
 function prepare()

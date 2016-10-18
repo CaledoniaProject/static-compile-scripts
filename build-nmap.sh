@@ -6,9 +6,14 @@ set -ex
 OPENSSL_VERSION=1.0.2h
 NMAP_VERSION=7.30
 
+function init()
+{
+    mkdir -p /build/ /output/ /distfiles/
+}
+
 function download()
 {
-    wget "$1" -O distfiles/"$2"
+    wget "$1" -O /distfiles/"$2"
 }
 
 function prepare()
@@ -58,5 +63,7 @@ function build_nmap()
     make install
 }
 
+init
+prepare
 build_nmap
 
