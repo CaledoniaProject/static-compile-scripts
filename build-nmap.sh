@@ -28,7 +28,7 @@ function build_openssl()
     cd /build/openssl-${OPENSSL_VERSION}
 
     # Configure
-    CC='/usr/local/musl/bin/musl-gcc -static' ./configure -q no-shared linux-x86_64
+    CC='/usr/local/musl/bin/musl-gcc -static' ./Configure -q no-shared linux-x86_64
 
     # Build
     make
@@ -65,5 +65,7 @@ function build_nmap()
 
 init
 prepare
+
+build_openssl
 build_nmap
 
