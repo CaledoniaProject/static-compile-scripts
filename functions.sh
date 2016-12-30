@@ -23,6 +23,11 @@ function download()
 
 function build_openssl() 
 {
+    if [[ -f "${basedir}/build/openssl-${openssl_version}/libssl.a" ]]; then
+        echo OpenSSL already built
+        return
+    fi
+
     download "https://www.openssl.org/source/openssl-${openssl_version}.tar.gz" "openssl-${openssl_version}.tar.gz"
 
     tar xvf "$basedir"/distfiles/openssl-${openssl_version}.tar.gz -C "$basedir"/build/
